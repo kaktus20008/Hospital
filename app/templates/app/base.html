@@ -1,0 +1,89 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Поликлиника</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #b3e5f5;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 20px;
+  }
+  .wrap { width: 100%; max-width: 720px; }
+  .header {
+    background: #29abe2; color: #fff; text-align: center;
+    padding: 16px; font-weight: 700; letter-spacing: 1px;
+    font-size: 18px; border-radius: 6px 6px 0 0;
+  }
+  .card {
+    background: #e6f7ff; padding: 24px;
+    min-height: 420px; border-radius: 0 0 6px 6px;
+  }
+  input, select {
+    width: 100%; padding: 12px; margin: 8px 0;
+    border: 1px solid #b3d9ea; border-radius: 4px;
+    box-sizing: border-box; font-size: 14px; background: #fff;
+  }
+  label { font-size: 13px; color: #333; margin-top: 6px; display: block; }
+  .btn {
+    display: inline-block; padding: 12px 26px;
+    background: #1273b8; color: #fff; border: none;
+    border-radius: 24px; font-weight: 700; cursor: pointer;
+    text-decoration: none; font-size: 14px;
+  }
+  .btn:hover { background: #0e5c95; }
+  .btn-row {
+    display: flex; justify-content: space-between;
+    gap: 12px; margin-top: 20px;
+  }
+  .menu-btn {
+    display: block; width: 100%; padding: 28px;
+    background: #1273b8; color: #fff; text-align: center;
+    border-radius: 20px; font-weight: 700; font-size: 16px;
+    text-decoration: none; margin: 18px 0;
+  }
+  .menu-btn:hover { background: #0e5c95; }
+  table {
+    width: 100%; border-collapse: collapse; background: #fff;
+    margin-top: 14px; border-radius: 4px; overflow: hidden;
+  }
+  th, td {
+    border: 1px solid #9ec9dc; padding: 10px;
+    text-align: left; font-size: 14px;
+  }
+  th { background: #d7f0fb; font-weight: 700; }
+  .err { color: #b00; margin-top: 10px; font-size: 14px; }
+  .empty {
+    text-align: center; padding: 60px 20px; font-size: 16px;
+    color: #555;
+  }
+  .topbar {
+    display: flex; justify-content: space-between;
+    align-items: center; background: #29abe2;
+    padding: 8px 14px; border-radius: 6px 6px 0 0;
+  }
+  .topbar .brand {
+    background: #fff; color: #1273b8;
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 22px;
+    text-decoration: none;
+  }
+  .topbar .bell {
+    font-size: 24px; text-decoration: none; color: #fff;
+  }
+  .topbar .spacer { width: 44px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    {% block topbar %}{% endblock %}
+    <div class="header">{% block title %}{% endblock %}</div>
+    <div class="card">{% block content %}{% endblock %}</div>
+  </div>
+</body>
+</html>

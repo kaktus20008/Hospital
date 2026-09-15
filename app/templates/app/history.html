@@ -1,0 +1,26 @@
+{% extends "app/base.html" %}
+{% block title %}МОЯ ИСТОРИЯ{% endblock %}
+{% block topbar %}
+<div class="topbar">
+  <a class="brand" href="{% url 'home' %}" title="На главную">←</a>
+  <div class="spacer"></div><div class="spacer"></div>
+</div>
+{% endblock %}
+{% block content %}
+<table>
+  <tr><th>Дата</th><th>Услуга</th><th>Врач</th><th>Диагноз</th></tr>
+  {% for r in rows %}
+  <tr>
+    <td>{{ r.0|date:"d.m.Y H:i" }}</td>
+    <td>{{ r.1 }}</td>
+    <td>{{ r.2 }} {{ r.3|slice:":1" }}. {{ r.4|slice:":1" }}.</td>
+    <td>{{ r.5 }}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="4" style="text-align:center">Нет записей</td></tr>
+  {% endfor %}
+</table>
+<div class="btn-row">
+  <a class="btn" href="{% url 'home' %}">НАЗАД</a>
+</div>
+{% endblock %}

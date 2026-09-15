@@ -1,0 +1,25 @@
+{% extends "app/base.html" %}
+{% block title %}ЗАПИСЬ НА УСЛУГУ{% endblock %}
+{% block topbar %}
+<div class="topbar">
+  <a class="brand" href="{% url 'home' %}" title="На главную">←</a>
+  <div class="spacer"></div><div class="spacer"></div>
+</div>
+{% endblock %}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <label>Услуга</label>
+  <select name="service_id" required>
+    {% for s in services %}
+    <option value="{{ s.id }}">{{ s.titleservice }} — {{ s.cost }} ₽ ({{ s.duration }} мин)</option>
+    {% endfor %}
+  </select>
+  <label>Дата и время записи</label>
+  <input type="datetime-local" name="datetime" required>
+  <div class="btn-row">
+    <a class="btn" href="{% url 'home' %}">НАЗАД</a>
+    <button class="btn" type="submit">ЗАПИСАТЬСЯ НА УСЛУГУ</button>
+  </div>
+</form>
+{% endblock %}

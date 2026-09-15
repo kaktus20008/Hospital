@@ -1,0 +1,14 @@
+{% extends "app/base.html" %}
+{% block title %}ГЛАВНАЯ СТРАНИЦА ПАЦИЕНТА{% endblock %}
+{% block topbar %}
+<div class="topbar">
+  <a class="brand" href="{% url 'logout' %}" title="Выйти">⏻</a>
+  <div class="spacer"></div>
+  <a class="bell" href="{% url 'upcoming' %}" title="Предстоящие записи">🔔</a>
+</div>
+{% endblock %}
+{% block content %}
+<a class="menu-btn" href="{% url 'me' %}">МОИ ДАННЫЕ</a>
+<a class="menu-btn" href="{% url 'history' %}">МОЯ ИСТОРИЯ</a>
+<a class="menu-btn" href="{% url 'book' %}">ЗАПИСАТЬСЯ НА УСЛУГУ</a>
+{% endblock %}

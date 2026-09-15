@@ -1,0 +1,14 @@
+{% extends "app/base.html" %}
+{% block title %}ОКНО АВТОРИЗАЦИИ{% endblock %}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <input name="login" placeholder="Логин" required autofocus>
+  <input name="password" type="password" placeholder="Пароль" required>
+  {% if error %}<div class="err">{{ error }}</div>{% endif %}
+  <div class="btn-row">
+    <a class="btn" href="{% url 'register' %}">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+    <button class="btn" type="submit">ВОЙТИ</button>
+  </div>
+</form>
+{% endblock %}

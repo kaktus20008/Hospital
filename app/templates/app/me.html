@@ -1,0 +1,22 @@
+{% extends "app/base.html" %}
+{% block title %}МОИ ДАННЫЕ{% endblock %}
+{% block topbar %}
+<div class="topbar">
+  <a class="brand" href="{% url 'home' %}" title="На главную">←</a>
+  <div class="spacer"></div><div class="spacer"></div>
+</div>
+{% endblock %}
+{% block content %}
+<table>
+  <tr><td style="width:40%">ФИО</td><td>{{ p.lname }} {{ p.fname }} {{ p.mname|default:"" }}</td></tr>
+  <tr><td>Дата рождения</td><td>{{ p.dateofbirth|date:"d.m.Y" }}</td></tr>
+  <tr><td>Телефон</td><td>{{ p.phone }}</td></tr>
+  <tr><td>Пол</td><td>{{ p.idgender.gendername }}</td></tr>
+  <tr><td>Адрес</td><td>{{ p.adress }}</td></tr>
+  <tr><td>Почта</td><td>{{ p.email }}</td></tr>
+</table>
+<div class="btn-row">
+  <a class="btn" href="{% url 'home' %}">НАЗАД</a>
+  <a class="btn" href="{% url 'me_edit' %}">ИЗМЕНИТЬ</a>
+</div>
+{% endblock %}

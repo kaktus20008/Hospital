@@ -1,0 +1,24 @@
+{% extends "app/base.html" %}
+{% block title %}ОКНО РЕГИСТРАЦИИ{% endblock %}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <input name="fio" placeholder="Фамилия Имя Отчество" required>
+  <input name="adress" placeholder="Адрес" required>
+  <input name="phone" placeholder="Телефон (11 цифр)" maxlength="12" required>
+  <input name="email" type="email" placeholder="Почта" required>
+  <label>Дата рождения</label>
+  <input name="dateofbirth" type="date" required>
+  <label>Пол</label>
+  <select name="gender">
+    <option value="1">Мужской</option>
+    <option value="2">Женский</option>
+  </select>
+  <input name="login" placeholder="Логин" required>
+  <input name="password" type="password" placeholder="Пароль" required>
+  <div class="btn-row">
+    <a class="btn" href="{% url 'login' %}">НАЗАД</a>
+    <button class="btn" type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+  </div>
+</form>
+{% endblock %}
